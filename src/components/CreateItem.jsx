@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 const CreateItem = (props) => {
   const [value, setValue] = useState('');
+  const [width, setWidth] = useState(0);
+
+  const myRef = useRef(null);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -20,26 +23,49 @@ const CreateItem = (props) => {
     }
   }
 
+  useEffect(() => {
+    if (myRef.current) {
+      setWidth(myRef.current.getBoundingClientRect().width);
+    }
+  }, [myRef]);
+
   return(
-    <div>
-      <Field
-        type='text'
-        placeholder='Enter a new item'
-        value={value}
-        onChange={(e) => handleChange(e)}
-        onKeyDown={(e) => checkEnter(e)}
-      />
-      <Submit
-        valid={value !== ''}
-        onClick={handleSubmit}
-      >
-        Submit
-      </Submit>
-    </div>
+    <StyledDiv>
+      <SecondLevel1>
+        <Field
+          type='text'
+          placeholder='Enter a new item'
+          value={value}
+          onChange={(e) => handleChange(e)}
+          onKeyDown={(e) => checkEnter(e)}
+        />
+      </SecondLevel1>
+      <SecondLevel2 width={width}>
+        <Submit
+          ref={myRef}
+          valid={value !== ''}
+          onClick={handleSubmit}
+        >
+          Submit
+        </Submit>
+      </SecondLevel2>
+    </StyledDiv>
   );
 }
 
 export default CreateItem;
+
+const StyledDiv = styled.div`
+  background: #ff000022;
+`;
+
+const SecondLevel1 = styled.div`
+  background: #0000ff22;
+`;
+const SecondLevel2 = styled.div`
+  background: #0000ff22;
+  width: ${props => props.width}px;
+`;
 
 const Field = styled.input`
   width: 300px;

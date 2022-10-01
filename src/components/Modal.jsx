@@ -42,7 +42,7 @@ const ModalWrapper = styled.div`
 
 const ModalContent = styled.div`
   position: relative;
-  padding: 40px;
+  padding: 30px 40px;
   border-radius: 20px;
   background: #fff;
   cursor: default;

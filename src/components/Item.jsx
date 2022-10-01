@@ -5,7 +5,9 @@ const Item = (props) => {
   return (
     <ItemWrapper onClick={() => props.handleClick()}>
       {props.strikeThrough && <Strike />}
-      {props.children}
+      <div>
+        {props.children}
+      </div>
     </ItemWrapper>
   );
 }
@@ -20,9 +22,15 @@ const ItemWrapper = styled.div`
   position: relative;
   cursor: pointer;
   user-select: none;
+  box-sizing: border-box;
+  border: 1px solid black;
 
   :hover {
     color: #00000055;
+  }
+
+  > div {
+    background: #0000ff22;
   }
 `;
 
@@ -32,6 +40,7 @@ const Strike = styled.div`
   left: 0;
   width: 100%;
   height: 40px;
+  background: transparent!important;
 
   :after {
     position: absolute;

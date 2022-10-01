@@ -67,4 +67,5 @@ const ListWrapper = styled.div`
   width: calc(50% + 64px);
   flex: 1;
   overflow-y: auto;
+  background: #ff000022;
 `;
