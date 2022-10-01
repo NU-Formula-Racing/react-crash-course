@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import { Context } from './Context';
 
+import Close from '../assets/fi_x.svg';
+
 const Modal = () => {
   const context = useContext(Context);
 
@@ -16,7 +18,10 @@ const Modal = () => {
       onClick={closeModal}
     >
       <ModalContent onClick={e => e.stopPropagation()}>
-        <Exit onClick={closeModal} />
+        <Exit
+          onClick={closeModal}
+          src={Close}
+        />
         {context.modalContent}
       </ModalContent>
     </ModalWrapper>
@@ -48,12 +53,10 @@ const ModalContent = styled.div`
   cursor: default;
 `;
 
-const Exit = styled.div`
+const Exit = styled.img`
   position: absolute;
-  top: 12px;
-  right: 20px;
+  top: 13px;
+  right: 16px;
   cursor: pointer;
-  :before {
-    content: 'x';
-  }
+  filter: invert(22%) sepia(81%) saturate(2610%) hue-rotate(349deg) brightness(84%) contrast(92%);
 `;
