@@ -6,8 +6,6 @@ import styled from 'styled-components';
 // todo make "submit" text black if valid and #777 if invalid.
 
 const CreateItem = (props) => {
-  const [value, setValue] = useState('');
-
   const handleChange = (e) => {
     // Add Code Here
     
