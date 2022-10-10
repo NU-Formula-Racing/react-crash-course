@@ -1,14 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-
 import Modal from './components/Modal';
 import List from './components/List';
 
 const App = () => {
   return (
     <AppWrapper>
+      {/*
       <GlobalStyle />
-      {/*<Modal />*/}
+      <Modal />
+      */}
       <Title>
         Example
       </Title>
