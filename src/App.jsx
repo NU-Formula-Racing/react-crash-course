@@ -1,23 +1,19 @@
-import { useState, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { ContextProvider } from './components/Context';
 
 import Modal from './components/Modal';
 import List from './components/List';
 
 const App = () => {
   return (
-    <ContextProvider>
-      <AppWrapper>
-        <GlobalStyle />
-        <Modal />
-        <Title>
-          Example
-        </Title>
-        <List />
-      </AppWrapper>
-    </ContextProvider>
+    <AppWrapper>
+      <GlobalStyle />
+      {/*<Modal />*/}
+      <Title>
+        Example
+      </Title>
+      <List />
+    </AppWrapper>
   );
 }
 

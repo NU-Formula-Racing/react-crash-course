@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
+
+// todo accept onClick from List
 
 const Item = (props) => {
   return (
-    <ItemWrapper onClick={() => props.handleClick()}>
+    <ItemWrapper>
       {props.strikeThrough && <Strike />}
       {props.children}
     </ItemWrapper>

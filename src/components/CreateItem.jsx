@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+// todo store the value of the input field
+// todo if input is not empty, propogate state update to List
+// todo make "submit" text black if valid and #777 if invalid.
+
 const CreateItem = (props) => {
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    // Add Code Here
+    
   }
 
   const handleSubmit = () => {
-    if (value !== '') {
-      props.submit(value);
-    }
+    // Add Code Here
+
   }
 
   const checkEnter = (e) => {
@@ -26,12 +30,12 @@ const CreateItem = (props) => {
         type='text'
         placeholder='Enter a new item'
         value={value}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => {/* Add Code here */}}
         onKeyDown={(e) => checkEnter(e)}
       />
       <Submit
         valid={value !== ''}
-        onClick={handleSubmit}
+        onClick={() => {/* Add Code Here */}}
       >
         Submit
       </Submit>
@@ -61,6 +65,6 @@ const Submit = styled.div`
   margin-top: 10px;
   cursor: pointer;
   border: 1px solid ${props => props.valid ? '#000' : '#aaa'};
-  color: ${props => props.valid ? '#000' : '#777'};
+  color: /* Add Code Here */;
   transition: all .2s ease;
 `;

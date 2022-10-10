@@ -6,34 +6,36 @@ import { Context } from './Context';
 import Item from './Item';
 import CreateItem from './CreateItem';
 
+// todo write a function to add an item to state
+// todo write a function to remove an item from state
+// todo make clicking an item remove itself from the list
+// todo add an <Item /> that will open a <CreateItem /> modal
+// todo update localstorage when state changes
+
 const List = () => {
   const context = useContext(Context);
 
-  const [state, setState] = useState(JSON.parse(localStorage.getItem('items')) ?? {
-    items: [],
-  });
-
-  useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(state));
-  }, [state.items]);
+  const [state, setState] = useState(
+    JSON.parse(localStorage.getItem('items')) ??
+    {items: ['testing', 'testing', '123']}
+  );
 
   const removeItem = (i) => {
-    let items = state.items.slice();
-    items.splice(i, 1);
-    setState({ items });
+    // Add Code Here
+
   }
 
   const addItem = (item) => {
-    let items = state.items.slice();
-    items.push(item);
-    setState({ items });
+    // Add Code Here
+    
+
     context.setModalOpen(false);
   }
 
   const openModal = () => {
-    context.setModalContent(<CreateItem
-      submit={(i) => addItem(i)}
-    />);
+    context.setModalContent(
+      <CreateItem submit={(i) => addItem(i)} />
+    );
     context.setModalOpen(true);
   }
 
@@ -41,9 +43,9 @@ const List = () => {
     <ListWrapper>
       {
         state.items.map((e, i) => {
+          // Edit the returned Item for the third todo
           return(
             <Item
-              handleClick={() => removeItem(i)}
               strikeThrough={true}
               key={i}
             >
@@ -52,11 +54,7 @@ const List = () => {
           );
         })
       }
-      <Item
-        handleClick={openModal}
-      >
-        + add a todo
-      </Item>
+      {/* Add Modal Code Here */}
     </ListWrapper>
   );
 }
