@@ -28,12 +28,10 @@ const CreateItem = (props) => {
         type='text'
         placeholder='Enter a new item'
         value={value}
-        onChange={(e) => {/* Add Code here */}}
         onKeyDown={(e) => checkEnter(e)}
       />
       <Submit
         valid={value !== ''}
-        onClick={() => {/* Add Code Here */}}
       >
         Submit
       </Submit>
