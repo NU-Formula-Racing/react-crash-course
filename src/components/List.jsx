@@ -19,6 +19,8 @@ const List = () => {
     JSON.parse(localStorage.getItem('items')) ??
     {items: ['testing', 'testing', '123']}
   );
+  
+  /* Add a useEffect to update localStorage */
 
   const removeItem = (i) => {
     // Add Code Here
@@ -33,8 +35,9 @@ const List = () => {
   }
 
   const openModal = () => {
+    // Edit CreateItem to enable adding todos
     context.setModalContent(
-      <CreateItem submit={(i) => addItem(i)} />
+      <CreateItem />
     );
     context.setModalOpen(true);
   }
@@ -54,7 +57,7 @@ const List = () => {
           );
         })
       }
-      {/* Add Modal Code Here */}
+      {/* Add Modal Opener Here */}
     </ListWrapper>
   );
 }
